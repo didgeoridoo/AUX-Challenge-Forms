@@ -17,13 +17,18 @@
 		<form id="form">
 
 			<header>
+			<!-- header inside form will be skipped if screenreader is in "forms mode". -->
+			<!-- it is most appropriate to have this outside of the form -->
 
 				<h1> Sign up for Whoo!</h1>
+				<!-- what's up with the initial spaces in some of your tags? -->
 				<span id="tagline">50 projects, 500 images, 10 videos, domain binding, and technical support</span>
-			
+				<!-- might there be a more semantic tag than a <span> for the tagline? -->
 			</header>
 
 			<div id="body">
+			<!-- try not to use the names of valid html tags as classes or IDs -->
+			<!-- it'll just confuse you later -->
 				<ol>
 
 			<!-- Step 1-->
@@ -34,10 +39,12 @@
 									<li>
 										<label for="portfolio-name">Portfolio name</label><br>
 										<input type="text" id="portfolio-name" required/>
+										<!-- <br> tags should only be used semantically (i.e. when you MEAN that there should a line break in the content, like in poetry). if you just need line breaks for visual presentation, use CSS display:block -->
 									</li>
 									<li>
 										<label for="web-address">Portfolio address</label><br>
 										<input type="url" id="web-address" required/><span>.sample.com</span>
+										<!-- .sample.com is a label for the url input, not a generic span -->
 									</li>
 								</ul>
 						</fieldset>
@@ -56,6 +63,7 @@
 										<label for="email">Email</label><br>
 										<input type="email" id="email" required/>
 										<p>NOTE: We'll never share your email, promise.</p>
+										<!-- this p tag is also most appropriately a second label for the related input field -->
 									</li>
 									<li>
 										<label for="password">Password</label><br>
@@ -74,6 +82,8 @@
 										<label for="card-number">Card Number</label><br>
 										<input type="text" id="card-number" required/>
 											<ul id="radios">
+											<!-- use fieldset/legend for the radio buttons and their associated legend http://html.cita.illinois.edu/nav/form/radio/index.php?example=6 -->
+											<!-- even if the form doesn't have a legend for the card choice, you should provide one that is not visually shown on the page (look up CSS methods to visually hide content while remaining accessible) -->
 												<li>
 														<input id="Amex" type="radio" name="CC" value="Amex">
 														<label for="Amex">Amex</label>
@@ -96,9 +106,12 @@
 										<label for="security-code">Security Code</label><br>
 										<input type="text" id="security-code" required />
 									</li>
-									<li> 
+									<li>
+										<!-- this label isn't attached to anything --> 
 										<label for="expiration-date">Expiration Date</label><br>
+										<!-- and these selectboxes aren't labeled by anything -->
 											<select id="month" name="month" required>
+
 												<option value="" selected disabled>Month</option>
 												<option>January</option>
 												<option>February</option>
